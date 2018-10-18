@@ -44,6 +44,8 @@ int PowerUpProcedure::powerUpProcedure(int stage)
 		return 1;
 	}
 	else if (stage == 3) { //APU
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/fuel_pump_lft1"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/fuel_pump_lft2"));
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/spring_toggle_switch/APU_start_pos_dn"));
 		return 1;
 	}
