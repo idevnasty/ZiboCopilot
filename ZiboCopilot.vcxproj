@@ -147,6 +147,7 @@
     <ClCompile Include="Procedures\BeforeTakeoffProcedure.cpp" />
     <ClCompile Include="Procedures\BeforeTaxiProcedure.cpp" />
     <ClCompile Include="Procedures\CleanupProcedure.cpp" />
+    <ClCompile Include="Procedures\EngineStartProcedure.cpp" />
     <ClCompile Include="Procedures\PowerUpProcedure.cpp" />
     <ClCompile Include="Procedures\PreflightProcedure.cpp" />
     <ClCompile Include="Procedures\ShutdownProcedure.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Procedures\BeforeTaxiProcedure.h" />
     <ClInclude Include="Procedures\CleanupProcedure.h" />
     <ClInclude Include="Procedures\DataRefList.h" />
+    <ClInclude Include="Procedures\EngineStartProcedure.h" />
     <ClInclude Include="Procedures\PowerUpProcedure.h" />
     <ClInclude Include="Procedures\PreflightProcedure.h" />
     <ClInclude Include="Procedures\ShutdownProcedure.h" />

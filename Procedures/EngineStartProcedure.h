@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SubHandler_H
-#define SubHandler_H
+#ifndef EngineStart_H
+#define EngineStart_H
 
 #if APL
 #if defined(__MACH__)
@@ -25,7 +25,6 @@
 #include "XPLMScenery.h"
 #include "XPLMDataAccess.h"
 #include <cstdlib>
-#include "Procedures/DataRefList.h"
 
 #ifndef XPLM300
 #error This is made to be compiled against the XPLM300 SDK
@@ -33,29 +32,11 @@
 
 using namespace std;
 
-class SubHandler : public DataRefList
+class EngineStartProcedure
 {
 public:
-	enum Procedures
-	{
-		power_up,
-		pre_flight,
-		engine_start,
-		before_taxi,
-		before_take_off,
-		clean_up,
-		shutdown,
-		count
-	};
 
-	int ProcedureType = 0;
-	int ProcedureStage = 0;
-	float timeElapsed = 0;
-	bool doneProcedures = false;
-	bool procedures[count] = { false };
+	static int engineStartProcedure(int stage);
 
-	// printname is not defined inside class defination
-	void doProcedures(float elapsed);
-	void finishProcedure(int id);
 };
 #endif

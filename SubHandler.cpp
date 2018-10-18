@@ -32,6 +32,7 @@ using namespace std;
 #include "SubHandler.h"
 #include "Procedures/PowerUpProcedure.h"
 #include "Procedures/PreflightProcedure.h"
+#include "Procedures/EngineStartProcedure.h"
 #include "Procedures/BeforeTaxiProcedure.h"
 #include "Procedures/BeforeTakeoffProcedure.h"
 #include "Procedures/CleanupProcedure.h"
@@ -62,6 +63,13 @@ void SubHandler::doProcedures(float elapsed) {
 		else if (PreflightProcedure::preflightProcedure(ProcedureStage) == 2)
 			finishProcedure(pre_flight);
 
+	}
+
+	if (procedures[engine_start]) {
+		if (EngineStartProcedure::engineStartProcedure(ProcedureStage) == 1)
+			ProcedureStage++;
+		else if (EngineStartProcedure::engineStartProcedure(ProcedureStage) == 2)
+			finishProcedure(engine_start);
 	}
 
 	if (procedures[before_taxi]) {

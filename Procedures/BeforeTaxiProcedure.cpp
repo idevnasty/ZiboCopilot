@@ -46,48 +46,52 @@ int BeforeTaxiProcedure::beforeTaxiProcedure(int stage)
 		return 1;
 	}
 	else if (stage == 4) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/knob/eng1_start_right"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/rotary/eng1_start_cont"));
 		return 1;
 	}
 	else if (stage == 5) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/knob/eng2_start_right"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/eng_start_source_right"));
 		return 1;
 	}
 	else if (stage == 6) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/spring_toggle_switch/APU_start_pos_up"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/rotary/eng2_start_cont"));
 		return 1;
 	}
 	else if (stage == 7) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/l_pack_dn"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/spring_toggle_switch/APU_start_pos_up"));
 		return 1;
 	}
 	else if (stage == 8) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/iso_valve_up"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/l_pack_dn"));
 		return 1;
 	}
 	else if (stage == 9) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/r_pack_dn"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/iso_valve_up"));
 		return 1;
 	}
 	else if (stage == 10) {
-		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/bleed_air_apu"));
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/r_pack_dn"));
 		return 1;
 	}
 	else if (stage == 11) {
+		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/bleed_air_apu"));
+		return 1;
+	}
+	else if (stage == 12) {
 		if (XPLMGetDatai(XPLMFindDataRef(DataRefList::dataRefList[24])) < 1)
 			XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/fo_probes_pos"));
 		if (XPLMGetDatai(XPLMFindDataRef(DataRefList::dataRefList[23])) < 1)
 			XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/capt_probes_pos"));
 		return 1;
 	}
-	else if (stage == 12) {
+	else if (stage == 13) {
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn"));
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn"));
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/switch/rwy_light_left_on"));
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/switch/rwy_light_right_on"));
 		return 1;
 	}
-	else if (stage == 13) {
+	else if (stage == 14) {
 		XPLMCommandOnce(XPLMFindCommand("laminar/B738/push_button/flaps_5"));
 		XPLMSpeakString("Before Taxi Procedures Completed");
 		return 2;
